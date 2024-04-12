@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
@@ -43,7 +43,8 @@ class StudentController extends Controller
     }
     //read
     public function index(){
-        $students = Student::with('user')->get();
+       // $students = Student::with('user')->get();
+       $students = DB::select('SELECT s.*, u.* FROM students AS s JOIN users AS u ON s.student_id = u.id;');
         return response()->json($students);
     }
     public function show (Student $student){

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,19 @@ Route::get('/students/edit/{student}',[StudentController::class,'edit'])->name('
 Route::put('/students/edit/{student}',[StudentController::class,'update'])->name('updateStudent');
 //delete students
 Route::delete('/students/destroy/{student}',[StudentController::class,'destroy'])->name('destroyStudent');
+
+//Users 
+
+Route::controller(UserController::class)->group(function(){
+    //create
+    Route::get('/users/create','create')->name('createUserForm');
+    Route::post('/users/create','store')->name('createUser');
+    //read
+    Route::get('/users','index')->name('getAllUser');
+    Route::get('/users/{user}','show')->name('getuser');
+    //update
+    Route::get('/user/edit/{user}','edit')->name('updateUserForm');
+    Route::put('users/update/{user}','update')->name('updateUser');
+    //delete
+    Route::delete('/user/delete/{user}')->name('deleteUser');
+});
