@@ -10,7 +10,16 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+<<<<<<< HEAD
 
+=======
+    protected $guarded = [];
+
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+>>>>>>> 5d412b19749924e7cceedb256e5b8f407e4920fb
     /**
      * The attributes that are mass assignable.
      *

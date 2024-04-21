@@ -82,6 +82,7 @@ return [
             ],
         ],
 
+<<<<<<< HEAD
         'roundrobin' => [
             'transport' => 'roundrobin',
             'mailers' => [
@@ -90,6 +91,8 @@ return [
             ],
         ],
 
+=======
+>>>>>>> 5d412b19749924e7cceedb256e5b8f407e4920fb
     ],
 
     /*
